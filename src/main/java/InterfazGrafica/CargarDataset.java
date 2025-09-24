@@ -35,7 +35,7 @@ public class CargarDataset extends JPanel {
 
                     TSPfichero fich = new TSPfichero();
                     fich.leerFichero(nomFichero);
-                    Main.recibirFichero(fich);
+                    Main.getFichero(fich);
 
                 }catch (NullPointerException ex){
                     JOptionPane.showMessageDialog(null, "Error campos vacios", "Campos vacios", JOptionPane.ERROR_MESSAGE);

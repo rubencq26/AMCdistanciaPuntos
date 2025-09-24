@@ -3,13 +3,13 @@ import InterfazGrafica.Menu;
 import TSPFicheros.TSPfichero;
 
 import javax.swing.*;
-import java.awt.*;
+
 
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main extends JFrame {
-    public static TSPfichero fichero;
+    private static TSPfichero fichero;
     public static void main(String[] args) {
         // Crear la ventana principal
 
@@ -17,10 +17,14 @@ public class Main extends JFrame {
 
 
 
-    }
-
-    public static void recibirFichero(TSPfichero fichero){
 
     }
 
+    public static void getFichero(TSPfichero fich){
+        fichero = fich;
+    }
+
+    public static TSPfichero getFichero(){
+        return fichero;
+    }
 }

@@ -5,9 +5,10 @@ import java.awt.*;
 
 public class Menu extends JFrame {
 
-    private JPanel panelContenedor;
-    private CardLayout cardLayout;
+    private final JPanel panelContenedor;
+
     public Menu(){
+        final CardLayout cardLayout;
         setTitle("AMC - Distancia de puntos");
         setSize(1080, 700); // Establecer el tamaño
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Que se cierre al salir

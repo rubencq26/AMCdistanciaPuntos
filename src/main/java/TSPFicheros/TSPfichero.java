@@ -77,7 +77,7 @@ public class TSPfichero {
     }
 
     public void generarFichero(String NAME, String COMMENT, int DIMENSION) throws IOException {
-        String path = "src/data/" + NAME ;
+        String path = "src/data/" + NAME + ".tsp";
         try(FileWriter writer = new FileWriter(path)){
             writer.write("NAME: " + NAME + "\n");
             writer.write("TYPE: TSP\n");
