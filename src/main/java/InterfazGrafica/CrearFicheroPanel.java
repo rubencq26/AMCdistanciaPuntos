@@ -33,29 +33,23 @@ public class CrearFicheroPanel extends JPanel {
             String comentario = Comentario.getText();
             try{
                 int dimension = Integer.parseInt(Dimension.getText());
-                if(dimension <= 0){
-                    throw new NumberFormatException();
-                }
-                if(comentario.equals(Comentario.texto)){
-                    comentario = "";
-                }
-
-                if(nombre.contains(".")){
-                    throw new Exception("El nombre no puede contener puntos");
-                }
-                if(nombre.equals(nombreFichero.texto)){
-                    throw new NullPointerException();
-                }
+                if(dimension <= 0) throw new NumberFormatException();
+                if(comentario.equals(Comentario.texto)) comentario = "";
+                if(nombre.contains(".")) throw new Exception("El nombre no puede contener puntos");
+                if(nombre.equals(nombreFichero.texto)) throw new NullPointerException();
 
                 TSPfichero fichero = new TSPfichero();
                 fichero.generarFichero(nombre, comentario, dimension);
                 Main.getFichero(fichero);
 
+                SwingUtilities.invokeLater(() -> {
+                    ventana.refrescarInfoFichero();           // refresca y show("Info2")
+                    ventana.cambiarPanelInformativo("Info2");  // redundante pero seguro
+                });
+
             }catch (NumberFormatException ex){
-                   JOptionPane.showMessageDialog(
-                           null,
-                           "Error la dimension debe ser un numero entero mayor a 0",
-                           "Formato de numero erroneo", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error la dimension debe ser un numero entero mayor a 0",
+                        "Formato de numero erroneo", JOptionPane.ERROR_MESSAGE);
             }catch (NullPointerException ex){
                 JOptionPane.showMessageDialog(null, "Error campos vacios", "Campos vacios", JOptionPane.ERROR_MESSAGE);
             }catch (Exception ex){
@@ -63,7 +57,7 @@ public class CrearFicheroPanel extends JPanel {
             }
         });
 
-        atras.addActionListener(_ -> ventana.cambiarPanel("Panel1"));
+        atras.addActionListener(_ -> ventana.cambiarPanelBotones("Panel1"));
 
         add(nombreFichero);
         add(Box.createRigidArea(new Dimension(0, 10)));

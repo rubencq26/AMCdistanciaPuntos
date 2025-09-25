@@ -12,25 +12,26 @@ public class PanelPrincipal extends JPanel {
 
         setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50));
 
-        JButton boton1 = new JButton("Crear un fichero .tsp aleatorio");
+        Boton boton1 = new Boton("Crear un fichero .tsp aleatorio");
         boton1.setMaximumSize(new Dimension(300, 100));
-        boton1.addActionListener(e -> menu.cambiarPanel("Panel2"));
+        boton1.addActionListener(e -> menu.cambiarPanelBotones("Panel2"));
 
-        JButton boton2 = new JButton("Cargar un dataset en memoria");
+        Boton boton2 = new Boton("Cargar un dataset en memoria");
         boton2.setMaximumSize(new Dimension(300, 100));
-        boton2.addActionListener(e -> menu.cambiarPanel("Panel3"));
-        JButton boton3 = new JButton("Probar una estrategia");
+        boton2.addActionListener(e -> menu.cambiarPanelBotones("Panel3"));
+        Boton boton3 = new Boton("Probar una estrategia");
         boton3.setMaximumSize(new Dimension(300, 100));
-        JButton boton4 = new JButton("Comprobar estrategias");
+        Boton boton4 = new Boton("Comprobar estrategias");
         boton4.setMaximumSize(new Dimension(300, 100));
-        JButton boton5 = new JButton("Comparar todas las estrategias");
+        Boton boton5 = new Boton("Comparar todas las estrategias");
         boton5.setMaximumSize(new Dimension(300, 100));
-        JButton boton6 = new JButton("Comparar 2 estrategias");
+        Boton boton6 = new Boton("Comparar 2 estrategias");
         boton6.setMaximumSize(new Dimension(300, 100));
-        JButton boton7 = new JButton("Comparar 3 estrategias");
+        Boton boton7 = new Boton("Comparar 3 estrategias");
         boton7.setMaximumSize(new Dimension(300, 100));
-        JButton boton8 = new JButton("Salir");
+        Boton boton8 = new Boton("Salir");
         boton8.setMaximumSize(new Dimension(300, 100));
+        boton8.addActionListener(e -> System.exit(0));
 
         boton1.setAlignmentX(Component.CENTER_ALIGNMENT);
         boton2.setAlignmentX(Component.CENTER_ALIGNMENT);

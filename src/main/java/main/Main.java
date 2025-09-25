@@ -12,7 +12,7 @@ public class Main extends JFrame {
     private static TSPfichero fichero;
     public static void main(String[] args) {
         // Crear la ventana principal
-
+        fichero = null;
         Menu ventana = new Menu();
 
 
