@@ -13,7 +13,7 @@ import java.io.FileWriter;
 import java.util.Random;
 
 
-public class TSPfichero {
+public class TSPfichero implements Cloneable{
     private String NAME;
     private String TYPE;
     private String COMMENT;
@@ -158,5 +158,11 @@ public class TSPfichero {
         }else{
             throw new IndexOutOfBoundsException("El indice no esta dentro del rango");
         }
+    }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        TSPfichero copia = (TSPfichero) super.clone();
+        
     }
 }

@@ -6,13 +6,19 @@ public class Solucion{
     private double distancia;
     private int nCalculadas;
     private double tiempo;
+    private String nombre;
 
-    public Solucion(int p1, int p2, double distancia){
+    public Solucion(int p1, int p2, double distancia, String nombre){
         this.p1 = p1;
         this.p2 = p2;
         this.distancia = distancia;
         nCalculadas = 0;
         tiempo = 0;
+        this.nombre = nombre;
+    }
+    
+    public String getNombre(){
+        return nombre;
     }
 
     public int getP1() {
