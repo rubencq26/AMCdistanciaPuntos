@@ -57,6 +57,11 @@ public class Solucion{
     public double getTiempo() {
         return tiempo;
     }
-
+    
+    
+    @Override
+    public String toString(){
+        return getNombre() + " | " + getP1() + " | " + getP2() + " | " + getDistancia() + " | " + getTiempo() + " | " + getNCalculadas();
+    }
 
 }
