@@ -4,6 +4,7 @@
  */
 package main;
 
+import Algoritmos.DyV;
 import Algoritmos.Exhaustivo;
 import Algoritmos.ExhaustivoPoda;
 import TSPFicheros.TSPfichero;
@@ -20,12 +21,13 @@ public class main {
     public static void main(String[] args) {
         
         TSPfichero file = new TSPfichero();
-        file.generarDataset(10000);
-        Exhaustivo ex = new Exhaustivo(file.getNodos());
+        file.generarDataset(50000);
+        DyV d = new DyV(file.getNodos());
         ExhaustivoPoda ep = new ExhaustivoPoda(file.getNodos());
         
-        System.out.println(ex.calcularDistanciaMasCorta().toString());
+        System.out.println(d.calcular().toString());
         System.out.println(ep.calcular().toString());
+        
         
         
     }

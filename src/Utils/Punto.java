@@ -37,6 +37,6 @@ public class Punto{
 
     @Override
     public String toString(){
-        return "(" + x + "," + y + ")";
+        return getId() + " (" + x + ", " + y + ")";
     }
 }

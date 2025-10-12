@@ -1,14 +1,14 @@
 package Utils;
 
 public class Solucion{
-    private int p1;
-    private int p2;
+    private Punto p1;
+    private Punto p2;
     private double distancia;
     private int nCalculadas;
     private double tiempo;
     private String nombre;
 
-    public Solucion(int p1, int p2, double distancia, String nombre){
+    public Solucion(Punto p1, Punto p2, double distancia, String nombre){
         this.p1 = p1;
         this.p2 = p2;
         this.distancia = distancia;
@@ -21,21 +21,21 @@ public class Solucion{
         return nombre;
     }
 
-    public int getP1() {
+    public Punto getP1() {
         return p1;
     }
-    public int getP2() {
+    public Punto getP2() {
         return p2;
     }
     public double getDistancia() {
         return distancia;
     }
 
-    public void setP1(int p1) {
+    public void setP1(Punto p1) {
         this.p1 = p1;
     }
 
-    public void setP2(int p2) {
+    public void setP2(Punto p2) {
         this.p2 = p2;
     }
 
@@ -58,10 +58,14 @@ public class Solucion{
         return tiempo;
     }
     
+    public void setNombre(String n){
+        nombre = n;
+    }
+    
     
     @Override
     public String toString(){
-        return getNombre() + " | " + getP1() + " | " + getP2() + " | " + getDistancia() + " | " + getTiempo() + " | " + getNCalculadas();
+        return getNombre() + " | " + getP1().toString() + " | " + getP2().toString() + " | " + getDistancia() + " | " + getTiempo() + " | " + getNCalculadas();
     }
 
 }

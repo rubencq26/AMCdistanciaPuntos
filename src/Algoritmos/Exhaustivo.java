@@ -7,8 +7,9 @@ import Utils.Solucion;
 
 public class Exhaustivo {
     private List <Punto> puntos;
-    private Solucion solucion = new Solucion(0, 0, 0, "Exhaustivo");
+    private Solucion solucion;
     public Exhaustivo(List<Punto> puntos) {
+        this.solucion = new Solucion(new Punto(0, 0, 0),new Punto(0, 0, 0), Double.POSITIVE_INFINITY, "Exhaustivo");
         this.puntos = puntos;
     }
 
@@ -26,7 +27,7 @@ public class Exhaustivo {
                 if(distanciaActual < distancia){
                    distancia = distanciaActual;
                    distancia = Math.round(distancia * 1e8) / 1e8;
-                   solucion = new Solucion(p1.getId(), p2.getId(), distancia, "Exhaustivo");
+                   solucion = new Solucion(p1, p2, distancia, "Exhaustivo");
                 }
                 n++;
             }
