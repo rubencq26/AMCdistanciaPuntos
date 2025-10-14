@@ -18,6 +18,18 @@ public class Punto{
         this.id = p.getId();
     }
     
+    public Punto(){
+        this.x = 0;
+        this.y = 0;
+        this.id = -1;
+    }
+    
+    public double calcularDistancia(Punto p){
+        double distancia = Math.sqrt(Math.pow(p.getX() - getX(), 2 ) + Math.pow(p.getY() - getY(), 2));
+        distancia = Math.round(distancia * 1e8) / 1e8;
+        return distancia;
+    }
+    
     public int getId(){
         return id;
     }

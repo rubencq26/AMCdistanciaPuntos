@@ -1,6 +1,7 @@
 package Utils;
 
-public class Solucion{
+public class Solucion {
+
     private Punto p1;
     private Punto p2;
     private double distancia;
@@ -8,7 +9,7 @@ public class Solucion{
     private double tiempo;
     private String nombre;
 
-    public Solucion(Punto p1, Punto p2, double distancia, String nombre){
+    public Solucion(Punto p1, Punto p2, double distancia, String nombre) {
         this.p1 = p1;
         this.p2 = p2;
         this.distancia = distancia;
@@ -16,17 +17,29 @@ public class Solucion{
         tiempo = 0;
         this.nombre = nombre;
     }
-    
-    public String getNombre(){
+
+    public Solucion() {
+        p1 = new Punto();
+        p2 = new Punto();
+        distancia = Double.POSITIVE_INFINITY;
+        nombre = "";
+        tiempo = 0;
+        nCalculadas = 0;
+
+    }
+
+    public String getNombre() {
         return nombre;
     }
 
     public Punto getP1() {
         return p1;
     }
+
     public Punto getP2() {
         return p2;
     }
+
     public double getDistancia() {
         return distancia;
     }
@@ -50,6 +63,7 @@ public class Solucion{
     public void setTiempo(double tiempo) {
         this.tiempo = tiempo;
     }
+
     public int getNCalculadas() {
         return nCalculadas;
     }
@@ -57,14 +71,13 @@ public class Solucion{
     public double getTiempo() {
         return tiempo;
     }
-    
-    public void setNombre(String n){
+
+    public void setNombre(String n) {
         nombre = n;
     }
-    
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return getNombre() + " | " + getP1().toString() + " | " + getP2().toString() + " | " + getDistancia() + " | " + getTiempo() + " | " + getNCalculadas();
     }
 
