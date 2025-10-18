@@ -20,12 +20,14 @@ public class TSPfichero implements Cloneable{
     private int DIMENSION;
     private String EDGE_WEIGHT_TYPE;
     private List<Punto> nodos;
+    private boolean vacio;
 
     /**
      * Constructor de la clase, inicializa los nodos
      */
     public TSPfichero() {
         nodos = new ArrayList<>();
+        vacio = true;
     }
 
     /**
@@ -55,6 +57,7 @@ public class TSPfichero implements Cloneable{
                 leerNodos(br);
             }
         }
+        this.vacio = false;
     }
 
     /**
@@ -96,11 +99,12 @@ public class TSPfichero implements Cloneable{
                 writer.write((i + 1)+ " " + x + " " + y + "\n");
             }
             writer.write("EOF");
-            this.NAME = NAME;
+            this.NAME = NAME + ".tsp";
             this.DIMENSION = DIMENSION;
             this.COMMENT = COMMENT;
             this.TYPE = "TSP";
             this.EDGE_WEIGHT_TYPE = "EUC_2D";
+            this.vacio = false;
             System.out.println("Fichero generado correctamente");
         }catch (IOException e){
             System.out.println("Ocurrio un error al escribir en el archivo: " + e.getMessage());
@@ -165,5 +169,9 @@ public class TSPfichero implements Cloneable{
         TSPfichero copia = (TSPfichero) super.clone();
         copia.nodos = new ArrayList<Punto>(this.nodos);
         return copia;
+    }
+    
+    public boolean getVacio(){
+        return vacio;
     }
 }
