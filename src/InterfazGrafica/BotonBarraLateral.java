@@ -25,7 +25,7 @@ public class BotonBarraLateral extends JButton{
         
         setBackground(new Color(246, 244, 245)); // Mismo color que el panel de fondo
         setForeground(Color.DARK_GRAY);
-        setFont(new Font("Segoe UI", Font.PLAIN, 14)); // Fuente similar a la imagen
+        setFont(new Font("Segoe UI Light", Font.PLAIN, 14)); // Fuente similar a la imagen
         setText(name);
         
         setHorizontalAlignment(SwingConstants.LEFT); // Alinea texto e icono a la izquierda

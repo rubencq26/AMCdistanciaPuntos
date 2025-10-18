@@ -104,7 +104,7 @@ public class BotonesPanel extends javax.swing.JPanel {
         setForeground(new java.awt.Color(195, 205, 205));
         setPreferredSize(new java.awt.Dimension(200, 700));
 
-        nombreLogo.setFont(new java.awt.Font("Segoe UI", 1, 17)); // NOI18N
+        nombreLogo.setFont(new java.awt.Font("Segoe UI Semibold", 1, 17)); // NOI18N
         nombreLogo.setForeground(new java.awt.Color(0, 0, 0));
         nombreLogo.setText("TSP Ficheros");
 
@@ -117,7 +117,7 @@ public class BotonesPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(nombreLogo)
