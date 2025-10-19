@@ -4,11 +4,16 @@
  */
 package InterfazGrafica;
 
+import Algoritmos.ExhaustivoPoda;
 import TSPFicheros.TSPfichero;
+import Utils.Punto;
+import Utils.Solucion;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -74,7 +79,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public static CardLayout cardLayout = new CardLayout();
     public static JPanel contentPanel = new JPanel();
     public static MenuPrincipal menuPrincipal = new MenuPrincipal();
-    //public static String datasetCard = "DATASET";
+    public static DatasetPanel dP;
+    
     
     /**
      * @param args the command line arguments
@@ -85,21 +91,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         contentPanel.setLayout(cardLayout);
         contentPanel.setBounds(200, 66, 800, 670);
         file = new TSPfichero();
-        try {
-            file.generarFichero("hola", "", 100);
-        } catch (IOException e) {
-        }
+        
         
                 
         bP = new BotonesPanel();
         bP.setBounds(0, 0, 200, 700);
         menuPrincipal.add(bP);
         
+        dP = new DatasetPanel();
+        
         bS = new BarraSuperiorPanel();
         bS.setBounds(200,0,800, 66);
         menuPrincipal.add(bS);
         
-        DatasetPanel dP = new DatasetPanel();
+        
         contentPanel.add(dP, "DATASET");
         cardLayout.show(contentPanel, "DATASET");
         

@@ -4,14 +4,21 @@
  */
 package InterfazGrafica;
 
+import Algoritmos.ExhaustivoPoda;
 import TSPFicheros.TSPfichero;
+import Utils.Solucion;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 
 /**
@@ -34,6 +41,12 @@ public class BarraSuperiorPanel extends javax.swing.JPanel {
 
         BotonBarraSuperior boton = new BotonBarraSuperior(); // Mejor pasar texto
         boton.setBounds(580, 15, 140, 35);
+        boton.addActionListener(new ActionListener () {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuPrincipal.dP.abrirDialogoArchivo();
+            }
+        });
         this.add(boton);
 
         // 💥 LLAMAMOS AL MÉTODO SIN RETORNO DE VALOR 💥
@@ -53,6 +66,7 @@ public class BarraSuperiorPanel extends javax.swing.JPanel {
                 basura.addActionListener(e -> {
                     MenuPrincipal.file = new TSPfichero();
                     cambiarLabel();
+                    MenuPrincipal.dP.rePintar();
                 });
 
                 // 3. AÑADIR A LA INTERFAZ Y REDIBUJAR
@@ -66,6 +80,8 @@ public class BarraSuperiorPanel extends javax.swing.JPanel {
             }
         });
     }
+    
+     
 
     private static JLabel ficheroCargado = new JLabel();
 

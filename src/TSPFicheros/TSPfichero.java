@@ -1,6 +1,8 @@
 package TSPFicheros;
 
 
+import Algoritmos.Heapsort;
+import Algoritmos.HeapsortY;
 import Utils.Punto;
 
 import java.io.BufferedReader;
@@ -21,6 +23,8 @@ public class TSPfichero implements Cloneable{
     private String EDGE_WEIGHT_TYPE;
     private List<Punto> nodos;
     private boolean vacio;
+    private double maxX;
+    private double maxY;
 
     /**
      * Constructor de la clase, inicializa los nodos
@@ -39,6 +43,9 @@ public class TSPfichero implements Cloneable{
     public void leerFichero(String path) throws IOException {
         NAME = path;
         path = "src/data/" + path;
+        
+        this.nodos = new ArrayList<>();
+        
         BufferedReader br = new BufferedReader(new FileReader(path));
         String linea;
         while ((linea = br.readLine()) != null) {
@@ -55,6 +62,8 @@ public class TSPfichero implements Cloneable{
                 leerNodos(br);
             }
         }
+        encuentraMaxX();
+        encuentraMaxY();
         
         this.vacio = false;
     }
@@ -76,6 +85,8 @@ public class TSPfichero implements Cloneable{
                 this.nodos.add(new Punto(x, y, i));
             }
         }
+        encuentraMaxX();
+        encuentraMaxY();
     }
 
     public void generarFichero(String NAME, String COMMENT, int DIMENSION) throws IOException {
@@ -90,9 +101,9 @@ public class TSPfichero implements Cloneable{
             this.nodos = new ArrayList<>();
             Random random = new Random(System.nanoTime());
             for (int i = 0; i < DIMENSION; i++) {
-                double x = 800* random.nextDouble();
+                double x = 450* random.nextDouble();
                 x = Math.round(x * Math.pow(10,10)) / Math.pow(10,10);
-                double y = random.nextDouble() * 600;
+                double y = random.nextDouble() * 450;
                 y = Math.round(y * Math.pow(10,10)) / Math.pow(10,10);
                 this.nodos.add(new Punto(x, y, i));
                 writer.write((i + 1)+ " " + x + " " + y + "\n");
@@ -108,19 +119,44 @@ public class TSPfichero implements Cloneable{
         }catch (IOException e){
             System.out.println("Ocurrio un error al escribir en el archivo: " + e.getMessage());
         }
+        encuentraMaxX();
+        encuentraMaxY();
     }
 
     public void generarDataset(int DIMENSION){
         this.nodos = new ArrayList<>();
         Random random = new Random(System.nanoTime());
         for (int i = 0; i < DIMENSION; i++) {
-            double x = 800* random.nextDouble();
+            double x = 450* random.nextDouble();
             x = Math.round(x * Math.pow(10,10)) / Math.pow(10,10);
-            double y = random.nextDouble() * 600;
+            double y = random.nextDouble() * 450;
             y = Math.round(y * Math.pow(10,10)) / Math.pow(10,10);
             this.nodos.add(new Punto(x, y, i));
         }
+        NAME = "Generado" + DIMENSION;
+        encuentraMaxX();
+        encuentraMaxY();
         System.out.println("Dataset generado correctamente");
+    }
+    
+    private void encuentraMaxX(){
+        List<Punto> sorted = new ArrayList<>();
+        for(Punto p : this.nodos){
+            sorted.add(new Punto(p.getX(), p.getY(), p.getId()));
+        }
+        Heapsort heap = new Heapsort(sorted);
+        sorted = heap.heapsort();
+        this.maxX = sorted.get(sorted.size() - 1).getX();
+    }
+    
+     private void encuentraMaxY(){
+        List<Punto> sorted = new ArrayList<>();
+        for(Punto p : this.nodos){
+            sorted.add(new Punto(p.getX(), p.getY(), p.getId()));
+        }
+        HeapsortY heap = new HeapsortY(sorted);
+        sorted = heap.heapsort();
+        this.maxY = sorted.get(sorted.size() - 1).getX();
     }
 
     /**
@@ -162,6 +198,15 @@ public class TSPfichero implements Cloneable{
             throw new IndexOutOfBoundsException("El indice no esta dentro del rango");
         }
     }
+    
+    public double getMaxX(){
+        return maxX;
+    }
+    
+    public double getMaxY(){
+        return maxY;
+    }
+    
     
     @Override
     public Object clone() throws CloneNotSupportedException{
