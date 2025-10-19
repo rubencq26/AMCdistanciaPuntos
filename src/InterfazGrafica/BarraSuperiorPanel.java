@@ -107,7 +107,7 @@ public class BarraSuperiorPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(800, 65));
+        setPreferredSize(new java.awt.Dimension(800, 66));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

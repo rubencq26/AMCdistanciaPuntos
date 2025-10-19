@@ -37,19 +37,17 @@ public class TSPfichero implements Cloneable{
      * @throws IOException
      */
     public void leerFichero(String path) throws IOException {
+        NAME = path;
         path = "src/data/" + path;
         BufferedReader br = new BufferedReader(new FileReader(path));
         String linea;
         while ((linea = br.readLine()) != null) {
             linea = linea.trim();
-            if (linea.startsWith("NAME")) {
-                this.NAME = linea.split(":")[1].trim();
-                //split divide la cadena, trim elimina los espacios al pricipio y final
-            } else if (linea.startsWith("TYPE")) {
+            if (linea.startsWith("TYPE")) {
                 this.TYPE = linea.split(":")[1].trim();
-            } else if (linea.startsWith("COMMENT")) {
-                this.COMMENT = linea.split(":")[1].trim();
-            } else if (linea.startsWith("DIMENSION")) {
+            } //else if (linea.startsWith("COMMENT")) {
+                //this.COMMENT = linea.split(":")[1].trim();
+             else if (linea.startsWith("DIMENSION")) {
                 this.DIMENSION = Integer.parseInt(linea.split(":")[1].trim());
             } else if (linea.startsWith("EDGE_WEIGHT_TYPE")) {
                 this.EDGE_WEIGHT_TYPE = linea.split(":")[1].trim();
@@ -57,6 +55,7 @@ public class TSPfichero implements Cloneable{
                 leerNodos(br);
             }
         }
+        
         this.vacio = false;
     }
 

@@ -5,9 +5,12 @@
 package InterfazGrafica;
 
 import TSPFicheros.TSPfichero;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.io.IOException;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -48,7 +51,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1000, 700));
+        setPreferredSize(new java.awt.Dimension(1000, 736));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,15 +71,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public static String nombreFichero;
     public static BotonesPanel bP;
     public static BarraSuperiorPanel bS;
+    public static CardLayout cardLayout = new CardLayout();
+    public static JPanel contentPanel = new JPanel();
+    public static MenuPrincipal menuPrincipal = new MenuPrincipal();
+    //public static String datasetCard = "DATASET";
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        
+        
+        contentPanel.setLayout(cardLayout);
+        contentPanel.setBounds(200, 66, 800, 670);
         file = new TSPfichero();
         try {
             file.generarFichero("hola", "", 100);
-        } catch (Exception e) {
+        } catch (IOException e) {
         }
         
                 
@@ -87,6 +98,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         bS = new BarraSuperiorPanel();
         bS.setBounds(200,0,800, 66);
         menuPrincipal.add(bS);
+        
+        DatasetPanel dP = new DatasetPanel();
+        contentPanel.add(dP, "DATASET");
+        cardLayout.show(contentPanel, "DATASET");
+        
+        menuPrincipal.add(contentPanel);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
