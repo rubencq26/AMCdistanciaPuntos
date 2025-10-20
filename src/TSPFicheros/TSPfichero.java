@@ -89,12 +89,12 @@ public class TSPfichero implements Cloneable{
         encuentraMaxY();
     }
 
-    public void generarFichero(String NAME, String COMMENT, int DIMENSION) throws IOException {
+    public void generarFichero(String NAME, int DIMENSION) throws IOException {
         String path = "src/data/" + NAME + ".tsp";
         try(FileWriter writer = new FileWriter(path)){
             writer.write("NAME: " + NAME + "\n");
             writer.write("TYPE: TSP\n");
-            writer.write("COMMENT: " + COMMENT + "\n");
+            writer.write("COMMENT: " + "Comentario" + "\n");
             writer.write("DIMENSION: " + DIMENSION + "\n");
             writer.write("EDGE_WEIGHT_TYPE: EUC_2D\n");
             writer.write("NODE_COORD_SECTION\n");
@@ -119,8 +119,8 @@ public class TSPfichero implements Cloneable{
         }catch (IOException e){
             System.out.println("Ocurrio un error al escribir en el archivo: " + e.getMessage());
         }
-        encuentraMaxX();
-        encuentraMaxY();
+        maxX = 450;
+        maxY = 450;
     }
 
     public void generarDataset(int DIMENSION){
@@ -134,8 +134,9 @@ public class TSPfichero implements Cloneable{
             this.nodos.add(new Punto(x, y, i));
         }
         NAME = "Generado" + DIMENSION;
-        encuentraMaxX();
-        encuentraMaxY();
+        maxX = 450;
+        maxY = 450;
+        vacio = false;
         System.out.println("Dataset generado correctamente");
     }
     
