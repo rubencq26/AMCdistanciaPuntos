@@ -90,9 +90,64 @@ public class DatasetPanel extends javax.swing.JPanel {
         
         JLabel nombreLabel = new JLabel("Nombre Fichero");
         nombreLabel.setFont(new Font("Segoe UI", Font.PLAIN, 10));
-        nombreLabel.setBounds(550, 245,220 ,15);
+        nombreLabel.setBounds(550, 245,210 ,15);
         nombreLabel.setForeground(Color.WHITE);
         this.add(nombreLabel);
+        
+        dimensionFichero = new DimensionTextField("Introduzca la dimension del fichero");
+        dimensionFichero.setBounds(540, 371, 220, 45);
+        this.add(dimensionFichero);
+        
+        JLabel dimensionLabel = new JLabel("Dimensión");
+        dimensionLabel.setFont(new Font("Segoe UI", Font.PLAIN, 10));
+        dimensionLabel.setForeground(Color.WHITE);
+        dimensionLabel.setBounds(550, 356, 210, 15);
+        this.add(dimensionLabel);
+        
+        BotonBarraSuperior generarFicheroBoton = new BotonBarraSuperior();
+        generarFicheroBoton.setText("Generar Fichero");
+        generarFicheroBoton.setBounds(540, 418, 220, 122);
+        generarFicheroBoton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                generarFicheroDataset();
+            }
+            
+        });
+        this.add(generarFicheroBoton);
+    }
+    
+    void generarFicheroDataset(){
+        try{
+            String nombre = nombreFichero.getText();
+            if(nombre == null || nombre.trim().isEmpty() || nombre.equals("Introduzca el nombre(sin extension)")){
+                System.out.println("Error en el nombre");
+                return;
+            }
+            
+            String dim = dimensionFichero.getText();
+            if(dim == null || dim.trim().isEmpty()){
+                System.out.println("Error en la dimension");
+                return;
+            }     
+            
+            int d = Integer.parseInt(dim.trim());
+            
+            MenuPrincipal.file.generarFichero(nombre.trim(), d);
+            
+            ExhaustivoPoda exha = new ExhaustivoPoda(MenuPrincipal.file.getNodos());
+            Solucion sol = exha.calcular();
+            p1 = sol.getP1().getId();
+            p2 = sol.getP2().getId();
+
+            BarraSuperiorPanel.cambiarLabel();
+            System.out.println("Archivo seleccionado: " + MenuPrincipal.file.getNAME());
+
+            repaint();
+            
+        }catch(Exception e){
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     void abrirGenerarDataset() {
@@ -172,7 +227,7 @@ public class DatasetPanel extends javax.swing.JPanel {
                 RenderingHints.VALUE_ANTIALIAS_ON
         );
         
-        g2d.setColor(new Color(28,28,28));
+        g2d.setColor(new Color(29, 29, 39));
         
         g2d.fillRoundRect(540, 205, 220, 335, 15, 15);
         

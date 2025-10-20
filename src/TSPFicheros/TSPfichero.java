@@ -111,7 +111,7 @@ public class TSPfichero implements Cloneable{
             writer.write("EOF");
             this.NAME = NAME + ".tsp";
             this.DIMENSION = DIMENSION;
-            this.COMMENT = COMMENT;
+            this.COMMENT = "Comentario";
             this.TYPE = "TSP";
             this.EDGE_WEIGHT_TYPE = "EUC_2D";
             this.vacio = false;

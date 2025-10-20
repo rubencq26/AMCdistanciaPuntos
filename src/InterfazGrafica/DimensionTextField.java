@@ -20,7 +20,7 @@ import javax.swing.JTextField;
  * @author rubco
  */
 public class DimensionTextField extends JTextField{
-    private final Color bgColor = new Color(28, 28, 28);
+    private final Color bgColor = new Color(29, 29, 39);
     private final Color bordeColor = new Color(60,60,65);
     private final Color focusColor = Color.WHITE;
     private final Color textColor = Color.WHITE;

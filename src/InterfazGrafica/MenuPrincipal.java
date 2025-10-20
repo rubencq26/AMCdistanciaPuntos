@@ -89,7 +89,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         
         contentPanel.setLayout(cardLayout);
-        contentPanel.setBounds(200, 66, 800, 670);
+        contentPanel.setBounds(200, 66, 800, 570);
         file = new TSPfichero();
         
         

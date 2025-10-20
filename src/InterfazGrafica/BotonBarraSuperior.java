@@ -25,7 +25,7 @@ public class BotonBarraSuperior extends JButton {
     private final int PREFERRED_HEIGHT = 30; // Alto estimado
 
     public BotonBarraSuperior() {
-        super("Cargar Dataset");
+        super("Cargar Fichero");
         
         // Configuraciones necesarias para el estilo plano
         setContentAreaFilled(false);
