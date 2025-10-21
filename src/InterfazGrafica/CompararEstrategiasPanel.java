@@ -33,7 +33,7 @@ public class CompararEstrategiasPanel extends JPanel{
         setLayout(null);
         setBackground(Color.WHITE);
         
-        JLabel titulo = new JLabel("Comprobar Estrategias");
+        JLabel titulo = new JLabel("Comparar Estrategias");
         titulo.setFont(new Font("Segoe UI Semibold", Font.BOLD, 28));
         titulo.setForeground(Color.BLACK);
         titulo.setBounds(20, 40, 300, 40);

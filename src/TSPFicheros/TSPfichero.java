@@ -134,6 +134,7 @@ public class TSPfichero implements Cloneable{
             this.nodos.add(new Punto(x, y, i));
         }
         NAME = "Generado" + DIMENSION;
+        this.DIMENSION = DIMENSION;
         maxX = 450;
         maxY = 450;
         vacio = false;

@@ -68,6 +68,13 @@ public class BotonesPanel extends javax.swing.JPanel {
         
         comparar2EstrategiasBoton = new BotonBarraLateral("Comparar 2 Estrategias");
         comparar2EstrategiasBoton.setBounds(0, 230, 199, 40);
+        comparar2EstrategiasBoton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuPrincipal.cardLayout.show(MenuPrincipal.contentPanel, "COMPARAR2");
+            }
+            
+        });
         this.add(comparar2EstrategiasBoton);
                
         

@@ -97,7 +97,7 @@ public class BarraSuperiorPanel extends javax.swing.JPanel {
             ficheroCargado.setText("NO HAY DATASET CARGADO");
         } else {
             ficheroCargado.setForeground(Color.BLACK);
-            ficheroCargado.setText(MenuPrincipal.file.getNAME());
+            ficheroCargado.setText(MenuPrincipal.file.getNAME() + "     n: " + MenuPrincipal.file.getDIMENSION());
         }
     }
 

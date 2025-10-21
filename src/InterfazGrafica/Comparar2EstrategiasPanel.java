@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
@@ -28,24 +29,35 @@ public class Comparar2EstrategiasPanel extends javax.swing.JPanel {
     private TablaRender tabla;
     private DefaultTableModel model;
     
+    private JComboBox<String> algoritmo1; 
+    private JComboBox<String> algoritmo2;
+    
     public Comparar2EstrategiasPanel(){
         setLayout(null);
         setBackground(Color.WHITE);
         
-        JLabel titulo = new JLabel("Comprobar Estrategias");
+        JLabel titulo = new JLabel("Comparar 2 Estrategias");
         titulo.setFont(new Font("Segoe UI Semibold", Font.BOLD, 28));
         titulo.setForeground(Color.BLACK);
         titulo.setBounds(20, 40, 300, 40);
         add(titulo);
         
         tabla = new TablaRender();
-        tabla.setBounds(20, 200, 740, 200);
-        model = new DefaultTableModel(new Object[]{"Talla", "Exhaustivo(t mseg)", "ExhaPoda(t mseg)", "DyV(t mseg)", "DyVMejorado(t mseg)"}, 0);
+        
+        model = new DefaultTableModel(new Object[]{"Talla", "Exhaustivo(t mseg)", "Exhaustivo(t mseg)", "Exhaustivo(calculadas)", "Exhaustivo(calculadas)"}, 0);
         tabla.setModel(model);
         
+        String[] opciones = {"Exhaustivo", "ExhaustivoPoda", "DyV", "DyVMejorado"};
+        algoritmo1 = new JComboBox<>(opciones);
+        algoritmo1.setBounds(20, 120, 220, 20);
+        this.add(algoritmo1);
         
+        algoritmo2 = new JComboBox<>(opciones);
+        algoritmo2.setBounds(540, 120, 220, 20);
+        this.add(algoritmo2);
+                
         scroll = new JScrollPane(tabla);
-        scroll.setBounds(20, 100, 740, 350);
+        scroll.setBounds(20, 150, 740, 400);
         this.add(scroll);
         
         BotonBarraSuperior boton = new BotonBarraSuperior();
@@ -65,7 +77,16 @@ public class Comparar2EstrategiasPanel extends javax.swing.JPanel {
     public void comparar(){
         model.setRowCount(0);
         int contador = 500;
+        Solucion sol1 = new Solucion();
+        Solucion sol2 = new Solucion();
         TSPfichero dataset = new TSPfichero();
+        
+        String opcion1 = (String) algoritmo1.getSelectedItem();
+        String opcion2 = (String) algoritmo2.getSelectedItem();
+        
+        model = new DefaultTableModel(new Object[]{"Talla" ,opcion1 + "(t mseg)", opcion2 + "(t mseg)", opcion1 + "(calculadas)", opcion2 + "(calculadas)"}, 0);
+        tabla.setModel(model);
+        
         
         while(contador < 7500){
             dataset.generarDataset(contador);
@@ -74,12 +95,27 @@ public class Comparar2EstrategiasPanel extends javax.swing.JPanel {
             DyV dy = new DyV(dataset.getNodos());
             DyVMejorado dim = new DyVMejorado(dataset.getNodos());
             
-            Solucion solEx = ex.calcularDistanciaMasCorta();
-            Solucion solExP = exp.calcular();
-            Solucion solDyV = dy.calcular();
-            Solucion solDim = dim.calcular();
+            if(opcion1.equals("Exhaustivo")){
+                sol1 = ex.calcularDistanciaMasCorta();
+            }else if(opcion1.equals("ExhaustivoPoda")){
+                sol1 = exp.calcular();
+            }else if(opcion1.equals("DyV")){
+                sol1 = dy.calcular();
+            }else{
+                sol1 = dim.calcular();
+            }
             
-            model.addRow(new Object[]{contador, solEx.getTiempo(), solExP.getTiempo(), solDyV.getTiempo(), solDim.getTiempo()});
+            if(opcion2.equals("Exhaustivo")){
+                sol2 = ex.calcularDistanciaMasCorta();
+            }else if(opcion2.equals("ExhaustivoPoda")){
+                sol2 = exp.calcular();
+            }else if(opcion2.equals("DyV")){
+                sol2 = dy.calcular();
+            }else{
+                sol2 = dim.calcular();
+            }
+            
+            model.addRow(new Object[]{"    " + contador,"   " + sol1.getTiempo(),"   " + sol2.getTiempo(), "    " + sol1.getNCalculadas(), "    " + sol2.getNCalculadas()});
             contador +=500;
             
         }
