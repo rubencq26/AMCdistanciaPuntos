@@ -83,6 +83,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public static BarraInferiorPanel bI;
     public static Solucion sol;
     public static ComprobarEstrategiasPanel cE;
+    public static CompararEstrategiasPanel compaEstra;
     
     /**
      * @param args the command line arguments
@@ -102,6 +103,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         dP = new DatasetPanel();
         cE = new ComprobarEstrategiasPanel();
+        compaEstra = new CompararEstrategiasPanel();
         
         bS = new BarraSuperiorPanel();
         bS.setBounds(200,0,800, 66);
@@ -110,6 +112,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         contentPanel.add(dP, "DATASET");
         contentPanel.add(cE, "COMPROBAR");
+        contentPanel.add(compaEstra, "COMPARAR");
         cardLayout.show(contentPanel, "DATASET");
         
         menuPrincipal.add(contentPanel);

@@ -51,7 +51,7 @@ public class ExhaustivoPoda {
                 if(min > distancia){
                     min = distancia;
                     
-                    sol = new Solucion(p1, p2, min, "Exhaustivo con Poda"); 
+                    sol = new Solucion(p1, p2, min, "ExhaustivoPoda"); 
                 }
                
             }
@@ -71,7 +71,7 @@ public class ExhaustivoPoda {
         double distancia;
         ordenar();
         Punto p1, p2;
-        Solucion sol = new Solucion(new Punto(0, 0 ,0), new Punto(0, 0, 0), 0, "Exhaustivo con Poda");
+        Solucion sol = new Solucion(new Punto(0, 0 ,0), new Punto(0, 0, 0), 0, "ExhaustivoPoda");
         int nCalculadas = 0;
         min = Double.MAX_VALUE;
         
@@ -94,7 +94,7 @@ public class ExhaustivoPoda {
                 if(min > distancia){
                     min = distancia;
                     
-                    sol = new Solucion(p1, p2, min, "Exhaustivo con Poda"); 
+                    sol = new Solucion(p1, p2, min, "ExhaustivoPoda"); 
                 }
                
             }

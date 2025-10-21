@@ -49,6 +49,6 @@ public class Punto{
 
     @Override
     public String toString(){
-        return getId() + " (" + x + ", " + y + ")";
+        return getId() + " (" + Math.round(x * 1000.0)/1000.0 + ", " + Math.round(y * 1000.0)/1000.0 + ")";
     }
 }

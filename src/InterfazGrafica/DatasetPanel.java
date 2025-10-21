@@ -143,6 +143,7 @@ public class DatasetPanel extends javax.swing.JPanel {
 
             BarraSuperiorPanel.cambiarLabel();
             MenuPrincipal.bI.actualizarSolucion();
+            MenuPrincipal.cE.actualizarTabla();
             System.out.println("Archivo seleccionado: " + MenuPrincipal.file.getNAME());
 
             repaint();
@@ -172,6 +173,7 @@ public class DatasetPanel extends javax.swing.JPanel {
 
             BarraSuperiorPanel.cambiarLabel();
             MenuPrincipal.bI.actualizarSolucion();
+            MenuPrincipal.cE.actualizarTabla();
             System.out.println("Archivo seleccionado: " + MenuPrincipal.file.getNAME());
 
             repaint();
@@ -201,6 +203,7 @@ public class DatasetPanel extends javax.swing.JPanel {
 
                 BarraSuperiorPanel.cambiarLabel();
                 MenuPrincipal.bI.actualizarSolucion();
+                MenuPrincipal.cE.actualizarTabla();
                 System.out.println("Archivo seleccionado: " + archivoSeleccionado.getName());
 
                 repaint();
