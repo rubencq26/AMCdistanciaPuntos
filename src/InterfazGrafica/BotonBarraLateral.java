@@ -24,7 +24,8 @@ public class BotonBarraLateral extends JButton{
         setOpaque(true); // Permite que setBackground funcione
         
         setBackground(new Color(246, 244, 245)); // Mismo color que el panel de fondo
-        setForeground(Color.DARK_GRAY);
+        //setForeground(Color.DARK_GRAY);
+        setForeground(new Color(46,46,46));
         setFont(new Font("Segoe UI Light", Font.PLAIN, 14)); // Fuente similar a la imagen
         setText(name);
         

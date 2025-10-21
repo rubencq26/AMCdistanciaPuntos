@@ -137,10 +137,12 @@ public class DatasetPanel extends javax.swing.JPanel {
             
             ExhaustivoPoda exha = new ExhaustivoPoda(MenuPrincipal.file.getNodos());
             Solucion sol = exha.calcular();
+            MenuPrincipal.sol = sol;
             p1 = sol.getP1().getId();
             p2 = sol.getP2().getId();
 
             BarraSuperiorPanel.cambiarLabel();
+            MenuPrincipal.bI.actualizarSolucion();
             System.out.println("Archivo seleccionado: " + MenuPrincipal.file.getNAME());
 
             repaint();
@@ -164,10 +166,12 @@ public class DatasetPanel extends javax.swing.JPanel {
 
             ExhaustivoPoda exha = new ExhaustivoPoda(MenuPrincipal.file.getNodos());
             Solucion sol = exha.calcular();
+            MenuPrincipal.sol = sol;
             p1 = sol.getP1().getId();
             p2 = sol.getP2().getId();
 
             BarraSuperiorPanel.cambiarLabel();
+            MenuPrincipal.bI.actualizarSolucion();
             System.out.println("Archivo seleccionado: " + MenuPrincipal.file.getNAME());
 
             repaint();
@@ -191,10 +195,12 @@ public class DatasetPanel extends javax.swing.JPanel {
 
                 ExhaustivoPoda exha = new ExhaustivoPoda(MenuPrincipal.file.getNodos());
                 Solucion sol = exha.calcular();
+                MenuPrincipal.sol = sol;
                 p1 = sol.getP1().getId();
                 p2 = sol.getP2().getId();
 
                 BarraSuperiorPanel.cambiarLabel();
+                MenuPrincipal.bI.actualizarSolucion();
                 System.out.println("Archivo seleccionado: " + archivoSeleccionado.getName());
 
                 repaint();
@@ -210,13 +216,6 @@ public class DatasetPanel extends javax.swing.JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        g.setColor(new Color(220, 220, 220));
-        int x1 = 0;
-        int y1 = 569;
-        int x2 = 800;
-        int y2 = 569;
-        g.drawLine(x1, y1, x2, y2);
 
         g.setColor(Color.BLACK);
         g.drawRect(20, 90, 450, 450);

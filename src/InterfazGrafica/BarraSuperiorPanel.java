@@ -65,8 +65,10 @@ public class BarraSuperiorPanel extends javax.swing.JPanel {
                 // 2. ADICIÓN DEL ACTION LISTENER (AQUÍ ES DONDE EL BOTÓN EXISTE)
                 basura.addActionListener(e -> {
                     MenuPrincipal.file = new TSPfichero();
+                    MenuPrincipal.sol = new Solucion();
                     cambiarLabel();
                     MenuPrincipal.dP.rePintar();
+                    MenuPrincipal.bI.actualizarSolucion();
                 });
 
                 // 3. AÑADIR A LA INTERFAZ Y REDIBUJAR

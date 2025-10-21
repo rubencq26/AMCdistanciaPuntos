@@ -7,6 +7,8 @@ package InterfazGrafica;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -20,7 +22,6 @@ public class BotonesPanel extends javax.swing.JPanel {
      * Creates new form BotonesPanel
      */
     private BotonBarraLateral datasetBoton;
-    private BotonBarraLateral crearDatasetBoton;
     private BotonBarraLateral comprobarEstrategiasBoton;
     private BotonBarraLateral compararEstrategiasBoton;
     private BotonBarraLateral comparar2EstrategiasBoton;
@@ -31,22 +32,35 @@ public class BotonesPanel extends javax.swing.JPanel {
         
         datasetBoton = new BotonBarraLateral("Dataset");
         datasetBoton.setBounds(0, 110, 199, 40);
+        datasetBoton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuPrincipal.cardLayout.show(MenuPrincipal.contentPanel, "DATASET");
+            }
+            
+        });
         this.add(datasetBoton);
         
-        crearDatasetBoton = new BotonBarraLateral("Crear Fichero TSP Aleatorio");
-        crearDatasetBoton.setBounds(0, 150, 199, 40);
-        this.add(crearDatasetBoton);
+        
+     
         
         comprobarEstrategiasBoton = new BotonBarraLateral("Comprobar Estrategias");
-        comprobarEstrategiasBoton.setBounds(0, 190, 199, 40);
+        comprobarEstrategiasBoton.setBounds(0, 150, 199, 40);
+        comprobarEstrategiasBoton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MenuPrincipal.cardLayout.show(MenuPrincipal.contentPanel, "COMPROBAR");
+            }
+            
+        });
         this.add(comprobarEstrategiasBoton);
         
         compararEstrategiasBoton = new BotonBarraLateral("Comparar Estrategias");
-        compararEstrategiasBoton.setBounds(0, 230, 199, 40);
+        compararEstrategiasBoton.setBounds(0, 190, 199, 40);
         this.add(compararEstrategiasBoton);
         
         comparar2EstrategiasBoton = new BotonBarraLateral("Comparar 2 Estrategias");
-        comparar2EstrategiasBoton.setBounds(0, 270, 199, 40);
+        comparar2EstrategiasBoton.setBounds(0, 230, 199, 40);
         this.add(comparar2EstrategiasBoton);
                
         

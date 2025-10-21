@@ -42,7 +42,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         
         setLocationRelativeTo(null);
-        setVisible(true);
+        
     }
 
     /**
@@ -80,7 +80,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public static JPanel contentPanel = new JPanel();
     public static MenuPrincipal menuPrincipal = new MenuPrincipal();
     public static DatasetPanel dP;
-    
+    public static BarraInferiorPanel bI;
+    public static Solucion sol;
+    public static ComprobarEstrategiasPanel cE;
     
     /**
      * @param args the command line arguments
@@ -89,7 +91,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         
         contentPanel.setLayout(cardLayout);
-        contentPanel.setBounds(200, 66, 800, 570);
+        contentPanel.setBounds(200, 66, 800, 568);
         file = new TSPfichero();
         
         
@@ -99,6 +101,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuPrincipal.add(bP);
         
         dP = new DatasetPanel();
+        cE = new ComprobarEstrategiasPanel();
         
         bS = new BarraSuperiorPanel();
         bS.setBounds(200,0,800, 66);
@@ -106,10 +109,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         
         contentPanel.add(dP, "DATASET");
+        contentPanel.add(cE, "COMPROBAR");
         cardLayout.show(contentPanel, "DATASET");
         
         menuPrincipal.add(contentPanel);
         
+        bI = new BarraInferiorPanel();
+        bI.setBounds(200,634, 800, 102);
+        bI.setBackground(Color.WHITE);
+        menuPrincipal.add(bI);
+        sol = new Solucion();
+        
+        menuPrincipal.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
