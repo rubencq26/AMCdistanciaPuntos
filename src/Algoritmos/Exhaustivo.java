@@ -26,7 +26,6 @@ public class Exhaustivo {
                 distanciaActual = Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2 ) + Math.pow(p2.getY() - p1.getY(), 2));
                 if(distanciaActual < distancia){
                    distancia = distanciaActual;
-                   distancia = Math.round(distancia * 1e8) / 1e8;
                    solucion = new Solucion(p1, p2, distancia, "Exhaustivo");
                 }
                 n++;
@@ -36,6 +35,7 @@ public class Exhaustivo {
         tiempo = tiempo / 1000000.0;
         solucion.setTiempo(tiempo);
         solucion.setNCalculadas(n);
+        solucion.setDistancia(Math.round(solucion.getDistancia()  * 1e8) / 1e8);
         return solucion;
     }
 

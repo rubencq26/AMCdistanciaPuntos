@@ -85,6 +85,7 @@ public class DyVMejorado {
         tiempo = tiempo / 1000000.0;
         s.setNombre("DyV Mejorado");
         s.setTiempo(tiempo);
+        s.setDistancia(Math.round(s.getDistancia()* 1e8) /1e8);
         s.setNCalculadas(calculadas);
         return s;
     }

@@ -26,7 +26,6 @@ public class Punto{
     
     public double calcularDistancia(Punto p){
         double distancia = Math.sqrt(Math.pow(p.getX() - getX(), 2 ) + Math.pow(p.getY() - getY(), 2));
-        distancia = Math.round(distancia * 1e8) / 1e8;
         return distancia;
     }
     

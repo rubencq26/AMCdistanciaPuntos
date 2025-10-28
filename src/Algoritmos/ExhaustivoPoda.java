@@ -38,14 +38,14 @@ public class ExhaustivoPoda {
             for(int j = i + 1; j < size; j++){
                 p2 = puntos.get(j);
                 
-                if(min < Math.abs(p1.getX() - p2.getX())){
+                if(min <= Math.abs(p1.getX() - p2.getX())){
                     break;
                 }
                 
                 
                 
                 distancia = Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2 ) + Math.pow(p2.getY() - p1.getY(), 2));
-                distancia = Math.round(distancia * 1e8) / 1e8;
+                
                 nCalculadas++;
                 
                 if(min > distancia){
@@ -60,6 +60,7 @@ public class ExhaustivoPoda {
         tiempo = System.nanoTime() - tiempo;
         tiempo = tiempo / 1000000.0;
         sol.setTiempo(tiempo);
+        
         sol.setNCalculadas(nCalculadas);
         return sol;
         
@@ -81,14 +82,14 @@ public class ExhaustivoPoda {
             for(int j = i + 1; j < size; j++){
                 p2 = puntos.get(j);
                 
-                if(min < Math.abs(p1.getX() - p2.getX())){
+                if(min <= Math.abs(p1.getX() - p2.getX())){
                     break;
                 }
                 
                 
                 
                 distancia = Math.sqrt(Math.pow(p2.getX() - p1.getX(), 2 ) + Math.pow(p2.getY() - p1.getY(), 2));
-                distancia = Math.round(distancia * 1e8) / 1e8;
+                
                 nCalculadas++;
                 
                 if(min > distancia){
@@ -103,6 +104,7 @@ public class ExhaustivoPoda {
         tiempo = System.nanoTime() - tiempo;
         tiempo = tiempo / 1000000.0;
         sol.setTiempo(tiempo);
+        sol.setDistancia(Math.round(sol.getDistancia()* 1e8) /1e8);
         sol.setNCalculadas(nCalculadas);
         return sol;
     }

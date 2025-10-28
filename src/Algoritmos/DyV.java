@@ -70,6 +70,7 @@ public class DyV {
         tiempo = tiempo / 1000000.0;
         s.setNombre("Divide y Venceras");
         s.setTiempo(tiempo);
+        s.setDistancia(Math.round(s.getDistancia()* 1e8) /1e8);
         s.setNCalculadas(calculadas);
         return s;
     }
