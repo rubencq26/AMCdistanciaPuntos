@@ -58,11 +58,11 @@ public class DyVMejorado {
             contador = 0;
             for(int j = i + 1; j < franja.size(); j++){
                 contador++;
-                if (contador > 11){
+                if (contador > 10){
                     break;
                 }
                 
-                if(Math.abs(franja.get(i).getY() - franja.get(j).getY()) > sMin.getDistancia()){
+                if(Math.abs(franja.get(i).getY() - franja.get(j).getY()) >= sMin.getDistancia()){
                     break;
                 }
                 calculadas++;  

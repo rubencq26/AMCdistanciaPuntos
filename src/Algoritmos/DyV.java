@@ -27,7 +27,7 @@ public class DyV {
     private Solucion divideYveceras(List<Punto> puntos) {
         int n = puntos.size();
         
-        if(n <= 10){
+        if(n <= 20){
             ExhaustivoPoda ex = new ExhaustivoPoda(puntos);
             Solucion s = ex.calcularSinOrdenar();
             calculadas += s.getNCalculadas();
@@ -51,7 +51,7 @@ public class DyV {
             }
         }
         ExhaustivoPoda exha = new ExhaustivoPoda(franja);
-        Solucion sFranja = exha.calcularSinOrdenar();
+        Solucion sFranja = exha.calcularSinOrdenar(d);
         calculadas += sFranja.getNCalculadas();
         
         if( d > sFranja.getDistancia()){
